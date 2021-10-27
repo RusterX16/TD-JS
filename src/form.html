@@ -10,34 +10,73 @@
     <form>
         <div>
             <label for="identifiant">Identifiant : </label>
-            <input type="text" value="Saisir un identifiant" id="identifiant" name="identifiant"
-                   onfocus="focusField(this)" onblur="champBlur(this)"/>
+            <input class="input"
+                   type="text"
+                   value="Saisir un identifiant"
+                   id="identifiant"
+                   name="identifiant"
+                   onfocus="focusField(this)"
+                   onblur="blurField(this)"
+            />
+            <div class="feedback"></div>
         </div>
-        <br/>
+
         <div>
             <label for="mdp">Mot de passe : </label>
-            <input type="text" value="" id="mdp" name="mdp" onfocus="focusField(this)" onblur="champBlur(this)"/>
+            <input class="input"
+                   type="password"
+                   value=""
+                   id="mdp"
+                   name="mdp"
+                   onfocus="focusField(this)"
+                   onblur="blurField(this)"
+            />
+            <div class="feedback"></div>
         </div>
-        <br/>
+
         <div>
-            <label for="mdp">Mot de passe : </label>
-            <input type="text" value="" id="confirm-mdp" name="mdp" onfocus="focusField(this)"
-                   onblur="champBlur(this)"/>
+            <label for="mdp">Confirmer le mot de passe : </label>
+            <input class="input"
+                   type="password"
+                   value=""
+                   id="confirm-mdp"
+                   name="mdp"
+                   onfocus="focusField(this)"
+                   onblur="blurField(this); !matchPassword() ? showIssue() : ''"
+            />
+            <div class="feedback">Password does not match !</div>
         </div>
-        <br/>
+
         <div>
             <label for="adresse">Adresse : </label>
-            <input type="text" value="Saisir une adresse postale" id="adresse" name="adresse" onfocus="focusField(this)"
-                   onblur="champBlur(this)"/>
+            <input class="input"
+                   type="text"
+                   value="Saisir une adresse postale"
+                   id="adresse"
+                   name="adresse"
+                   onfocus="blurField(this)"
+                   onblur="blurField(this)"
+            />
+            <div class="feedback"></div>
         </div>
-        <br/>
+
         <div>
             <label for="email">Email : </label>
-            <input type="text" value="Saisir une adresse email" id="email" name="email" onfocus="focusField(this)"
-                   onblur="champBlur(this)"/>
+            <input class="input"
+                   type="email"
+                   value="Saisir une adresse email"
+                   id="email"
+                   name="email"
+                   onfocus="focusField(this)"
+                   onblur="blurField(this)"
+            />
+            <div class="feedback"></div>
         </div>
-        <br/>
-        <input id="button" type="submit" onclick="alert('Validation anulée'); return false;"/>
+
+        <input id="button"
+               type="submit"
+               onclick="alert('Validation anulée'); return false;"
+        />
 
         <a href="index.html">
             <img id="back" src="../res/img/Tokyoship_Home_icon.svg" alt="">

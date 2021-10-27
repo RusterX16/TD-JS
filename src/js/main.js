@@ -52,16 +52,16 @@ function focusField(field) {
         field = "";
     }
     field.style.backgroundColor = "rgba(255, 255, 0, .9)";
+    field.style.transitionDuration = ".5s";
 }
 
-function champBlur(field) {
-    // field.style.backgroundColor = field.value !== "" ? "green" : "red";
-
+function blurField(field) {
     if(field.value !== "") {
         field.style.backgroundColor = "rgba(0, 255, 0, .7)";
     } else {
         field.style.backgroundColor = "rgba(255, 0, 0, .7)";
     }
+    field.style.transitionDuration = ".5s";
 }
 
 function modifyText() {
@@ -75,4 +75,21 @@ function modifyColor() {
     for(let i = 0; i < pTags.length; i++) {
         pTags[i].style.color = "red";
     }
+}
+
+function matchPassword() {
+    return document.getElementById("mdp").value === document.getElementById("confirm-mdp").value;
+}
+
+function showIssue() {
+    const array = document.getElementsByClassName("feedback");
+    array[2].style.visibility = "visible";
+    array[2].style.height = "20px";
+
+    /*
+    for(let i = 0; i < array.length; i++) {
+        array[i].style.visibility = "visible";
+        array[i].style.height = "20px";
+    }
+    */
 }
