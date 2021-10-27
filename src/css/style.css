@@ -1,0 +1,38 @@
+#menu {
+    display: flex;
+    flex-direction: column;
+}
+
+#back {
+    position: absolute;
+    width: auto;
+    height: 64px;
+    right: 16px;
+    bottom: 16px;
+}
+
+#form {
+    font-family: Calibri, sans-serif;
+    font-weight: bold;
+    border: black 1px solid;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 32px auto;
+    padding: 2%;
+    width: 25%;
+    height: 256px;
+    border-radius: 10% / 50%;
+    background: rgb(255, 127, 255, .5);
+}
+
+#button {
+    font-family: Calibri, sans-serif;
+    transition-duration: .35s;
+}
+
+#button:hover {
+    -webkit-box-shadow: 0 0 3px 1px rgba(55, 55, 55, 0.7);
+    box-shadow: 0 0 3px 1px rgba(55, 55, 55, 0.7);
+    transition-duration: .35s;
+}

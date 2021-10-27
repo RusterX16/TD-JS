@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="form">
+    <form>
+        <div>
+            <label for="identifiant">Identifiant : </label>
+            <input type="text" value="Saisir un identifiant" id="identifiant" name="identifiant"
+                   onfocus="focusField(this)" onblur="champBlur(this)"/>
+        </div>
+        <br/>
+        <div>
+            <label for="mdp">Mot de passe : </label>
+            <input type="text" value="" id="mdp" name="mdp" onfocus="focusField(this)" onblur="champBlur(this)"/>
+        </div>
+        <br/>
+        <div>
+            <label for="mdp">Mot de passe : </label>
+            <input type="text" value="" id="confirm-mdp" name="mdp" onfocus="focusField(this)"
+                   onblur="champBlur(this)"/>
+        </div>
+        <br/>
+        <div>
+            <label for="adresse">Adresse : </label>
+            <input type="text" value="Saisir une adresse postale" id="adresse" name="adresse" onfocus="focusField(this)"
+                   onblur="champBlur(this)"/>
+        </div>
+        <br/>
+        <div>
+            <label for="email">Email : </label>
+            <input type="text" value="Saisir une adresse email" id="email" name="email" onfocus="focusField(this)"
+                   onblur="champBlur(this)"/>
+        </div>
+        <br/>
+        <input id="button" type="submit" onclick="alert('Validation anulée'); return false;"/>
+
+        <a href="index.html">
+            <img id="back" src="../res/img/Tokyoship_Home_icon.svg" alt="">
+        </a>
+
+        <script type="text/javascript" src="js/main.js"></script>
+    </form>
+</div>
+</body>
+</html>
