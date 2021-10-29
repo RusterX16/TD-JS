@@ -49,7 +49,7 @@ for(let cle in monchien3) {
 
 function focusField(field) {
     if(field.value !== "") {
-        field = "";
+        field.value = "";
     }
     field.style.backgroundColor = "rgba(255, 255, 0, .9)";
     field.style.transitionDuration = ".5s";
@@ -65,26 +65,72 @@ function blurField(field) {
 }
 
 function modifyText() {
-    const text = document.getElementById("text");
+    let text = document.getElementById("text");
     alert(text.innerText);
     text.innerText = "...";
 }
 
 function modifyColor() {
-    const pTags = document.getElementsByTagName('p');
+    let pTags = document.getElementsByTagName('p');
+
     for(let i = 0; i < pTags.length; i++) {
         pTags[i].style.color = "red";
     }
 }
 
-function matchPassword() {
-    return document.getElementById("mdp").value === document.getElementById("confirm-mdp").value;
+function isQuitLong() {
+    let index = 0;
+
+    if(document.getElementById("identifiant").value.length < 6) {
+        showIssue(index);
+    } else {
+        hideIssue(index);
+    }
 }
 
-function showIssue() {
+function matchPassword() {
+    let index = 2;
+
+    if(document.getElementById("mdp").value !== document.getElementById("confirm-mdp").value) {
+        showIssue(index);
+    } else {
+        hideIssue(index);
+    }
+}
+
+function isValidEmail() {
+    let index = 4;
+
+    if(!document.getElementById("email").value.includes("@")) {
+        showIssue(index);
+    } else {
+        hideIssue(index);
+    }
+}
+
+function isValidPhoneNumber() {
+    let field = document.getElementById("telephone").value;
+    let valid = true;
+    let index = 5;
+
+    for(let i = 0; i < 10; i++) {
+        if(field.includes(i)) {
+            valid = false;
+        }
+    }
+
+    if(!valid && field.length !== 10) {
+        showIssue(index);
+    } else {
+        hideIssue(index);
+    }
+}
+
+function showIssue(index) {
     const array = document.getElementsByClassName("feedback");
-    array[2].style.visibility = "visible";
-    array[2].style.height = "20px";
+    array[index].style.visibility = "visible";
+    array[index].style.height = "30px";
+    array[index].style.transitionDuration = ".75s";
 
     /*
     for(let i = 0; i < array.length; i++) {
@@ -92,4 +138,22 @@ function showIssue() {
         array[i].style.height = "20px";
     }
     */
+}
+
+function hideIssue(index) {
+    const array = document.getElementsByClassName("feedback");
+    array[index].style.visibility = "hidden";
+    array[index].style.height = "0";
+    array[index].style.transitionDuration = ".75s";
+}
+
+function missingInput() {
+    let array = document.getElementsByClassName("input");
+
+    for(let i = 0; i < array.length; i++) {
+        if(array[i].value === "") {
+            return true;
+        }
+    }
+    return false;
 }

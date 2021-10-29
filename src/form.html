@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,7 +8,7 @@
 <body>
 <div id="form">
     <form>
-        <div>
+        <div class="element">
             <label for="identifiant">Identifiant : </label>
             <input class="input"
                    type="text"
@@ -16,12 +16,14 @@
                    id="identifiant"
                    name="identifiant"
                    onfocus="focusField(this)"
-                   onblur="blurField(this)"
+                   onblur="blurField(this); isQuitLong()"
             />
-            <div class="feedback"></div>
+            <div class="feedback">
+                Le pseudo est trop court (minimum 6 caractères)
+            </div>
         </div>
 
-        <div>
+        <div class="element">
             <label for="mdp">Mot de passe : </label>
             <input class="input"
                    type="password"
@@ -34,7 +36,7 @@
             <div class="feedback"></div>
         </div>
 
-        <div>
+        <div class="element">
             <label for="mdp">Confirmer le mot de passe : </label>
             <input class="input"
                    type="password"
@@ -42,12 +44,14 @@
                    id="confirm-mdp"
                    name="mdp"
                    onfocus="focusField(this)"
-                   onblur="blurField(this); !matchPassword() ? showIssue() : ''"
+                   onblur="blurField(this); matchPassword()"
             />
-            <div class="feedback">Password does not match !</div>
+            <div class="feedback">
+                Le mot de passe ne correspond pas !
+            </div>
         </div>
 
-        <div>
+        <div class="element">
             <label for="adresse">Adresse : </label>
             <input class="input"
                    type="text"
@@ -57,10 +61,11 @@
                    onfocus="blurField(this)"
                    onblur="blurField(this)"
             />
-            <div class="feedback"></div>
+            <div class="feedback">
+            </div>
         </div>
 
-        <div>
+        <div class="element">
             <label for="email">Email : </label>
             <input class="input"
                    type="email"
@@ -68,14 +73,31 @@
                    id="email"
                    name="email"
                    onfocus="focusField(this)"
-                   onblur="blurField(this)"
+                   onblur="blurField(this); isValidEmail()"
             />
-            <div class="feedback"></div>
+            <div class="feedback">
+                L'email doit contenir un seul '@' !
+            </div>
+        </div>
+
+        <div class="element">
+            <label for="telephone">Telephone</label>
+            <input class="input"
+                   type="telephone"
+                   value="Saisir un numéro de téléphone"
+                   id="telephone"
+                   name="telephone"
+                   onfocus="focusField(this)"
+                   onblur="blurField(this); isValidPhoneNumber()"
+            />
+            <div class="feedback">
+                Le numéro de téléphone n'est pas valide !
+            </div>
         </div>
 
         <input id="button"
                type="submit"
-               onclick="alert('Validation anulée'); return false;"
+               onclick="alert(missingInput() ? 'Il manque des champs !' : 'Félicitations')"
         />
 
         <a href="index.html">
