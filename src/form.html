@@ -8,7 +8,7 @@
 <body>
 <div id="form">
     <form>
-        <div class="element">
+        <div>
             <label for="identifiant">Identifiant : </label>
             <input class="input"
                    type="text"
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div class="element">
+        <div>
             <label for="mdp">Mot de passe : </label>
             <input class="input"
                    type="password"
@@ -36,7 +36,7 @@
             <div class="feedback"></div>
         </div>
 
-        <div class="element">
+        <div>
             <label for="mdp">Confirmer le mot de passe : </label>
             <input class="input"
                    type="password"
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="element">
+        <div>
             <label for="adresse">Adresse : </label>
             <input class="input"
                    type="text"
@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="element">
+        <div>
             <label for="email">Email : </label>
             <input class="input"
                    type="email"
@@ -80,10 +80,10 @@
             </div>
         </div>
 
-        <div class="element">
+        <div>
             <label for="telephone">Telephone</label>
             <input class="input"
-                   type="telephone"
+                   type="text"
                    value="Saisir un numéro de téléphone"
                    id="telephone"
                    name="telephone"
@@ -97,7 +97,13 @@
 
         <input id="button"
                type="submit"
-               onclick="alert(missingInput() ? 'Il manque des champs !' : 'Félicitations')"
+               onclick="alert(
+                   !missingInput() ?
+                   allCorrect() ?
+                   'Félicitations' :
+                   'Veuillez remplir les conditions pour chaque champs svp' :
+                   'Merci de compléter tous les champs du formulaire'
+               )"
         />
 
         <a href="index.html">
