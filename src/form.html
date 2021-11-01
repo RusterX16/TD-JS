@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/form.js"></script>
 </head>
 <body>
 <div id="form">
@@ -37,12 +38,12 @@
         </div>
 
         <div>
-            <label for="mdp">Confirmer le mot de passe : </label>
+            <label for="mdp-conf">Confirmer le mot de passe : </label>
             <input class="input"
                    type="password"
                    value=""
                    id="confirm-mdp"
-                   name="mdp"
+                   name="mdp-conf"
                    onfocus="focusField(this)"
                    onblur="blurField(this); matchPassword()"
             />
@@ -109,8 +110,6 @@
         <a href="index.html">
             <img id="back" src="../res/img/Tokyoship_Home_icon.svg" alt="">
         </a>
-
-        <script type="text/javascript" src="js/main.js"></script>
     </form>
 </div>
 </body>
